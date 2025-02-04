@@ -230,95 +230,7 @@ export function CompanyForm(props) {
                   margin="dense"
                 />
               </Grid>
-              <Grid xs={12} sm={6} md={2} item>
-                <FormControl margin="dense" variant="outlined" fullWidth>
-                  <InputLabel htmlFor="plan-selection">Plano</InputLabel>
-                  <Field
-                    as={Select}
-                    id="plan-selection"
-                    label="Plano"
-                    labelId="plan-selection-label"
-                    name="planId"
-                    margin="dense"
-                    required
-                  >
-                    {plans.map((plan, key) => (
-                      <MenuItem key={key} value={plan.id}>
-                        {plan.name}
-                      </MenuItem>
-                    ))}
-                  </Field>
-                </FormControl>
-              </Grid>
-              <Grid xs={12} sm={6} md={2} item>
-                <FormControl margin="dense" variant="outlined" fullWidth>
-                  <InputLabel htmlFor="status-selection">Status</InputLabel>
-                  <Field
-                    as={Select}
-                    id="status-selection"
-                    label="Status"
-                    labelId="status-selection-label"
-                    name="status"
-                    margin="dense"
-                  >
-                    <MenuItem value={true}>Sim</MenuItem>
-                    <MenuItem value={false}>Não</MenuItem>
-                  </Field>
-                </FormControl>
-              </Grid>
-              <Grid xs={12} sm={6} md={2} item>
-                <FormControl margin="dense" variant="outlined" fullWidth>
-                  <InputLabel htmlFor="status-selection">Campanhas</InputLabel>
-                  <Field
-                    as={Select}
-                    id="campaigns-selection"
-                    label="Campanhas"
-                    labelId="campaigns-selection-label"
-                    name="campaignsEnabled"
-                    margin="dense"
-                  >
-                    <MenuItem value={true}>Habilitadas</MenuItem>
-                    <MenuItem value={false}>Desabilitadas</MenuItem>
-                  </Field>
-                </FormControl>
-              </Grid>
-              <Grid xs={12} sm={6} md={2} item>
-                <FormControl variant="outlined" fullWidth>
-                  <Field
-                    as={TextField}
-                    label="Data de Vencimento"
-                    type="date"
-                    name="dueDate"
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    variant="outlined"
-                    fullWidth
-                    margin="dense"
-                  />
-                </FormControl>
-              </Grid>
-              <Grid xs={12} sm={6} md={2} item>
-                <FormControl margin="dense" variant="outlined" fullWidth>
-                  <InputLabel htmlFor="recorrencia-selection">
-                    Recorrência
-                  </InputLabel>
-                  <Field
-                    as={Select}
-                    label="Recorrência"
-                    labelId="recorrencia-selection-label"
-                    id="recurrence"
-                    name="recurrence"
-                    margin="dense"
-                  >
-                    <MenuItem value="MENSAL">Mensal</MenuItem>
-                    {/*<MenuItem value="BIMESTRAL">Bimestral</MenuItem>*/}
-                    {/*<MenuItem value="TRIMESTRAL">Trimestral</MenuItem>*/}
-                    {/*<MenuItem value="SEMESTRAL">Semestral</MenuItem>*/}
-                    {/*<MenuItem value="ANUAL">Anual</MenuItem>*/}
-                  </Field>
-                </FormControl>
-              </Grid>
+
               <Grid xs={12} item>
                 <Grid justifyContent="flex-end" spacing={1} container>
                   <Grid xs={4} md={1} item>
@@ -344,30 +256,6 @@ export function CompanyForm(props) {
                           color="secondary"
                         >
                           Excluir
-                        </ButtonWithSpinner>
-                      </Grid>
-                      <Grid xs={6} md={2} item>
-                        <ButtonWithSpinner
-                          style={{ marginTop: 7 }}
-                          className={classes.fullWidth}
-                          loading={loading}
-                          onClick={() => incrementDueDate()}
-                          variant="contained"
-                          color="primary"
-                        >
-                          + Vencimento
-                        </ButtonWithSpinner>
-                      </Grid>
-                      <Grid xs={6} md={1} item>
-                        <ButtonWithSpinner
-                          style={{ marginTop: 7 }}
-                          className={classes.fullWidth}
-                          loading={loading}
-                          onClick={() => handleOpenModalUsers()}
-                          variant="contained"
-                          color="primary"
-                        >
-                          Usuário
                         </ButtonWithSpinner>
                       </Grid>
                     </>
@@ -454,11 +342,7 @@ export function CompaniesManagerGrid(props) {
             <TableCell align="left">Nome</TableCell>
             <TableCell align="left">E-mail</TableCell>
             <TableCell align="left">Telefone</TableCell>
-            <TableCell align="left">Plano</TableCell>
-            <TableCell align="left">Campanhas</TableCell>
             <TableCell align="left">Status</TableCell>
-            <TableCell align="left">Criada Em</TableCell>
-            <TableCell align="left">Vencimento</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -472,15 +356,7 @@ export function CompaniesManagerGrid(props) {
               <TableCell align="left">{row.name || "-"}</TableCell>
               <TableCell align="left">{row.email || "-"}</TableCell>
               <TableCell align="left">{row.phone || "-"}</TableCell>
-              <TableCell align="left">{renderPlan(row)}</TableCell>
-              <TableCell align="left">{renderCampaignsStatus(row)}</TableCell>
               <TableCell align="left">{renderStatus(row)}</TableCell>
-              <TableCell align="left">{dateToClient(row.createdAt)}</TableCell>
-              <TableCell align="left">
-                {dateToClient(row.dueDate)}
-                <br />
-                <span>{row.recurrence}</span>
-              </TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -319,62 +319,6 @@ const QueueModal = ({ open, onClose, queueId }) => {
                         <InputLabel id="integrationId-selection-label">
                           {i18n.t("queueModal.form.integrationId")}
                         </InputLabel>
-                        <Field
-                          as={Select}
-                          label={i18n.t("queueModal.form.integrationId")}
-                          name="integrationId"
-                          id="integrationId"
-                          placeholder={i18n.t("queueModal.form.integrationId")}
-                          labelId="integrationId-selection-label"
-                          value={values.integrationId || ""}
-                        >
-                          <MenuItem value={""} >{"Nenhum"}</MenuItem>
-                          {integrations.map((integration) => (
-                            <MenuItem key={integration.id} value={integration.id}>
-                              {integration.name}
-                            </MenuItem>
-                          ))}
-                        </Field>
-
-                      </FormControl>
-                      <FormControl
-                        margin="dense"
-                        variant="outlined"
-                        fullWidth
-                      >
-                        <InputLabel>
-                          {i18n.t("whatsappModal.form.prompt")}
-                        </InputLabel>
-                        <Select
-                          labelId="dialog-select-prompt-label"
-                          id="dialog-select-prompt"
-                          name="promptId"
-                          value={selectedPrompt || ""}
-                          onChange={handleChangePrompt}
-                          label={i18n.t("whatsappModal.form.prompt")}
-                          fullWidth
-                          MenuProps={{
-                            anchorOrigin: {
-                              vertical: "bottom",
-                              horizontal: "left",
-                            },
-                            transformOrigin: {
-                              vertical: "top",
-                              horizontal: "left",
-                            },
-                            getContentAnchorEl: null,
-                          }}
-                        >
-                          {prompts.map((prompt) => (
-                            <MenuItem
-                              key={prompt.id}
-                              value={prompt.id}
-                            >
-                              {prompt.name}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </FormControl>
                     </div>
                     <div style={{ marginTop: 5 }}>
                       <Field

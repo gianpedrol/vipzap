@@ -36,7 +36,7 @@ import { Can } from "../../components/Can";
 import NewTicketModal from "../../components/NewTicketModal";
 import { SocketContext } from "../../context/Socket/SocketContext";
 
-import {CSVLink} from "react-csv";
+import { CSVLink } from "react-csv";
 
 const reducer = (state, action) => {
   if (action.type === "LOAD_CONTACTS") {
@@ -153,7 +153,7 @@ const Contacts = () => {
     return () => {
       socket.disconnect();
     };
-  }, [ socketManager]);
+  }, [socketManager]);
 
   const handleSearch = (event) => {
     setSearchParam(event.target.value.toLowerCase());
@@ -296,12 +296,20 @@ const Contacts = () => {
             {i18n.t("contacts.buttons.add")}
           </Button>
 
-         <CSVLink style={{ textDecoration:'none'}} separator=";" filename={'contatos.csv'} data={contacts.map((contact) => ({ name: contact.name, number: contact.number, email: contact.email }))}>
-          <Button	variant="contained" color="primary"> 
-          EXPORTAR CONTATOS 
-          </Button>
-          </CSVLink>		  
-
+          <CSVLink
+            style={{ textDecoration: "none" }}
+            separator=";"
+            filename={"contatos.csv"}
+            data={contacts.map((contact) => ({
+              name: contact.name,
+              number: contact.number,
+              email: contact.email,
+            }))}
+          >
+            <Button variant="contained" color="primary">
+              EXPORTAR CONTATOS
+            </Button>
+          </CSVLink>
         </MainHeaderButtonsWrapper>
       </MainHeader>
       <Paper
@@ -345,12 +353,12 @@ const Contacts = () => {
                     >
                       <WhatsAppIcon />
                     </IconButton>
-                    <IconButton
+                    {/* <IconButton
                       size="small"
                       onClick={() => hadleEditContact(contact.id)}
                     >
                       <EditIcon />
-                    </IconButton>
+                    </IconButton> */}
                     <Can
                       role={user.profile}
                       perform="contacts-page:deleteContact"

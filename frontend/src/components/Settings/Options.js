@@ -11,13 +11,13 @@ import Title from "../Title";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import useSettings from "../../hooks/useSettings";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import { makeStyles } from "@material-ui/core/styles";
 import { grey, blue } from "@material-ui/core/colors";
 import { Tabs, Tab } from "@material-ui/core";
 
 //import 'react-toastify/dist/ReactToastify.css';
- 
+
 const useStyles = makeStyles((theme) => ({
   container: {
     paddingTop: theme.spacing(4),
@@ -31,17 +31,15 @@ const useStyles = makeStyles((theme) => ({
     height: 240,
   },
   tab: {
-    backgroundColor: theme.palette.options,  //DARK MODE PLW DESIGN//
+    backgroundColor: theme.palette.options, //DARK MODE PLW DESIGN//
     borderRadius: 4,
     width: "100%",
     "& .MuiTab-wrapper": {
       color: theme.palette.fontecor,
-    },   //DARK MODE PLW DESIGN//
+    }, //DARK MODE PLW DESIGN//
     "& .MuiTabs-flexContainer": {
-      justifyContent: "center"
-    }
-
-
+      justifyContent: "center",
+    },
   },
   paper: {
     padding: theme.spacing(2),
@@ -92,7 +90,6 @@ export default function Options(props) {
   const [loadingChatbotType, setLoadingChatbotType] = useState(false);
   const [loadingCheckMsgIsGroup, setCheckMsgIsGroup] = useState(false);
 
-
   //const [ipixcType, setIpIxcType] = useState("");
   //const [loadingIpIxcType, setLoadingIpIxcType] = useState(false);
   //const [tokenixcType, setTokenIxcType] = useState("");
@@ -107,17 +104,23 @@ export default function Options(props) {
 
   const [asaasType, setAsaasType] = useState("");
   const [loadingAsaasType, setLoadingAsaasType] = useState(false);
-  
+
   // recursos a mais da plw design
 
   const [SendGreetingAccepted, setSendGreetingAccepted] = useState("disabled");
-  const [loadingSendGreetingAccepted, setLoadingSendGreetingAccepted] = useState(false);
-  
+  const [loadingSendGreetingAccepted, setLoadingSendGreetingAccepted] =
+    useState(false);
+
   const [SettingsTransfTicket, setSettingsTransfTicket] = useState("disabled");
-  const [loadingSettingsTransfTicket, setLoadingSettingsTransfTicket] = useState(false);
-  
-  const [sendGreetingMessageOneQueues, setSendGreetingMessageOneQueues] = useState("disabled");
-  const [loadingSendGreetingMessageOneQueues, setLoadingSendGreetingMessageOneQueues] = useState(false);
+  const [loadingSettingsTransfTicket, setLoadingSettingsTransfTicket] =
+    useState(false);
+
+  const [sendGreetingMessageOneQueues, setSendGreetingMessageOneQueues] =
+    useState("disabled");
+  const [
+    loadingSendGreetingMessageOneQueues,
+    setLoadingSendGreetingMessageOneQueues,
+  ] = useState(false);
 
   const { update } = useSettings();
 
@@ -139,55 +142,79 @@ export default function Options(props) {
       if (CheckMsgIsGroup) {
         setCheckMsgIsGroupType(CheckMsgIsGroup.value);
       }
-	  
-	  {/*PLW DESIGN SAUDAÇÃO*/}
-      const SendGreetingAccepted = settings.find((s) => s.key === "sendGreetingAccepted");
+
+      {
+        /*PLW DESIGN SAUDAÇÃO*/
+      }
+      const SendGreetingAccepted = settings.find(
+        (s) => s.key === "sendGreetingAccepted"
+      );
       if (SendGreetingAccepted) {
         setSendGreetingAccepted(SendGreetingAccepted.value);
-      }	 
-	  {/*PLW DESIGN SAUDAÇÃO*/}	 
-	  
-	  {/*TRANSFERIR TICKET*/}	
-	  const SettingsTransfTicket = settings.find((s) => s.key === "sendMsgTransfTicket");
+      }
+      {
+        /*PLW DESIGN SAUDAÇÃO*/
+      }
+
+      {
+        /*TRANSFERIR TICKET*/
+      }
+      const SettingsTransfTicket = settings.find(
+        (s) => s.key === "sendMsgTransfTicket"
+      );
       if (SettingsTransfTicket) {
         setSettingsTransfTicket(SettingsTransfTicket.value);
       }
-	  {/*TRANSFERIR TICKET*/}
+      {
+        /*TRANSFERIR TICKET*/
+      }
 
-      const sendGreetingMessageOneQueues = settings.find((s) => s.key === "sendGreetingMessageOneQueues");
+      const sendGreetingMessageOneQueues = settings.find(
+        (s) => s.key === "sendGreetingMessageOneQueues"
+      );
       if (sendGreetingMessageOneQueues) {
-        setSendGreetingMessageOneQueues(sendGreetingMessageOneQueues.value)
-      }	  
-	  
+        setSendGreetingMessageOneQueues(sendGreetingMessageOneQueues.value);
+      }
+
       const chatbotType = settings.find((s) => s.key === "chatBotType");
       if (chatbotType) {
         setChatbotType(chatbotType.value);
       }
 
-	    {/*const ipixcType = settings.find((s) => s.key === "ipixc");
+      {
+        /*const ipixcType = settings.find((s) => s.key === "ipixc");
       if (ipixcType) {
         setIpIxcType(ipixcType.value);
-      }*/}
+      }*/
+      }
 
-      {/*const tokenixcType = settings.find((s) => s.key === "tokenixc");
+      {
+        /*const tokenixcType = settings.find((s) => s.key === "tokenixc");
       if (tokenixcType) {
         setTokenIxcType(tokenixcType.value);
-      }*/}
+      }*/
+      }
 
-      {/*const ipmkauthType = settings.find((s) => s.key === "ipmkauth");
+      {
+        /*const ipmkauthType = settings.find((s) => s.key === "ipmkauth");
       if (ipmkauthType) {
         setIpMkauthType(ipmkauthType.value);
-      }*/}
+      }*/
+      }
 
-     {/* const clientidmkauthType = settings.find((s) => s.key === "clientidmkauth");
+      {
+        /* const clientidmkauthType = settings.find((s) => s.key === "clientidmkauth");
       if (clientidmkauthType) {
         setClientIdMkauthType(clientidmkauthType.value);
-      }*/}
+      }*/
+      }
 
-      {/*const clientsecretmkauthType = settings.find((s) => s.key === "clientsecretmkauth");
+      {
+        /*const clientsecretmkauthType = settings.find((s) => s.key === "clientsecretmkauth");
       if (clientsecretmkauthType) {
         setClientSecrectMkauthType(clientsecretmkauthType.value);
-      }*/}
+      }*/
+      }
 
       const asaasType = settings.find((s) => s.key === "asaas");
       if (asaasType) {
@@ -207,15 +234,15 @@ export default function Options(props) {
     toast.success("Operação atualizada com sucesso.");
     setLoadingUserRating(false);
   }
-  
-    async function handleSendGreetingMessageOneQueues(value) {
+
+  async function handleSendGreetingMessageOneQueues(value) {
     setSendGreetingMessageOneQueues(value);
     setLoadingSendGreetingMessageOneQueues(true);
     await update({
       key: "sendGreetingMessageOneQueues",
       value,
     });
-	toast.success("Operação atualizada com sucesso.");
+    toast.success("Operação atualizada com sucesso.");
     setLoadingSendGreetingMessageOneQueues(false);
   }
 
@@ -227,7 +254,7 @@ export default function Options(props) {
       value,
     });
     //toast.success("Oraçãpeo atualizada com sucesso.");
-    toast.success('Operação atualizada com sucesso.', {
+    toast.success("Operação atualizada com sucesso.", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
@@ -235,7 +262,7 @@ export default function Options(props) {
       pauseOnHover: false,
       draggable: true,
       theme: "light",
-      });
+    });
     setLoadingScheduleType(false);
     if (typeof scheduleTypeChanged === "function") {
       scheduleTypeChanged(value);
@@ -277,8 +304,10 @@ export default function Options(props) {
           scheduleTypeChanged(value);
         } */
   }
-  
-  {/*NOVO CÓDIGO*/}  
+
+  {
+    /*NOVO CÓDIGO*/
+  }
   async function handleSendGreetingAccepted(value) {
     setSendGreetingAccepted(value);
     setLoadingSendGreetingAccepted(true);
@@ -286,12 +315,13 @@ export default function Options(props) {
       key: "sendGreetingAccepted",
       value,
     });
-	toast.success("Operação atualizada com sucesso.");
+    toast.success("Operação atualizada com sucesso.");
     setLoadingSendGreetingAccepted(false);
-  }  
-  
-  
-  {/*NOVO CÓDIGO*/}    
+  }
+
+  {
+    /*NOVO CÓDIGO*/
+  }
 
   async function handleSettingsTransfTicket(value) {
     setSettingsTransfTicket(value);
@@ -303,9 +333,10 @@ export default function Options(props) {
 
     toast.success("Operação atualizada com sucesso.");
     setLoadingSettingsTransfTicket(false);
-  } 
- 
- {/*async function handleChangeIPIxc(value) {
+  }
+
+  {
+    /*async function handleChangeIPIxc(value) {
     setIpIxcType(value);
     setLoadingIpIxcType(true);
     await update({
@@ -358,7 +389,8 @@ export default function Options(props) {
     });
     toast.success("Operação atualizada com sucesso.");
     setLoadingClientSecrectMkauthType(false);
-  }*/}
+  }*/
+  }
 
   async function handleChangeAsaas(value) {
     setAsaasType(value);
@@ -437,9 +469,7 @@ export default function Options(props) {
         </Grid>
         <Grid xs={12} sm={6} md={4} item>
           <FormControl className={classes.selectContainer}>
-            <InputLabel id="call-type-label">
-              Aceitar Chamada
-            </InputLabel>
+            <InputLabel id="call-type-label">Aceitar Chamada</InputLabel>
             <Select
               labelId="call-type-label"
               value={callType}
@@ -457,9 +487,7 @@ export default function Options(props) {
         </Grid>
         <Grid xs={12} sm={6} md={4} item>
           <FormControl className={classes.selectContainer}>
-            <InputLabel id="chatbot-type-label">
-              Tipo Chatbot
-            </InputLabel>
+            <InputLabel id="chatbot-type-label">Tipo Chatbot</InputLabel>
             <Select
               labelId="chatbot-type-label"
               value={chatbotType}
@@ -468,18 +496,20 @@ export default function Options(props) {
               }}
             >
               <MenuItem value={"text"}>Texto</MenuItem>
-			 {/*<MenuItem value={"button"}>Botão</MenuItem>*/}
-             {/*<MenuItem value={"list"}>Lista</MenuItem>*/}
+              {/*<MenuItem value={"button"}>Botão</MenuItem>*/}
+              {/*<MenuItem value={"list"}>Lista</MenuItem>*/}
             </Select>
             <FormHelperText>
               {loadingChatbotType && "Atualizando..."}
             </FormHelperText>
           </FormControl>
         </Grid>
-		{/* ENVIAR SAUDAÇÃO AO ACEITAR O TICKET */}
+        {/* ENVIAR SAUDAÇÃO AO ACEITAR O TICKET */}
         <Grid xs={12} sm={6} md={4} item>
           <FormControl className={classes.selectContainer}>
-            <InputLabel id="sendGreetingAccepted-label">Enviar saudação ao aceitar o ticket</InputLabel>
+            <InputLabel id="sendGreetingAccepted-label">
+              Enviar saudação ao aceitar o ticket
+            </InputLabel>
             <Select
               labelId="sendGreetingAccepted-label"
               value={SendGreetingAccepted}
@@ -495,12 +525,14 @@ export default function Options(props) {
             </FormHelperText>
           </FormControl>
         </Grid>
-		{/* ENVIAR SAUDAÇÃO AO ACEITAR O TICKET */}
-		
-		{/* ENVIAR MENSAGEM DE TRANSFERENCIA DE SETOR/ATENDENTE */}
+        {/* ENVIAR SAUDAÇÃO AO ACEITAR O TICKET */}
+
+        {/* ENVIAR MENSAGEM DE TRANSFERENCIA DE SETOR/ATENDENTE */}
         <Grid xs={12} sm={6} md={4} item>
           <FormControl className={classes.selectContainer}>
-            <InputLabel id="sendMsgTransfTicket-label">Enviar mensagem de transferencia de Fila/agente</InputLabel>
+            <InputLabel id="sendMsgTransfTicket-label">
+              Enviar mensagem de transferencia de Fila/agente
+            </InputLabel>
             <Select
               labelId="sendMsgTransfTicket-label"
               value={SettingsTransfTicket}
@@ -516,11 +548,13 @@ export default function Options(props) {
             </FormHelperText>
           </FormControl>
         </Grid>
-		
-		{/* ENVIAR SAUDAÇÃO QUANDO HOUVER SOMENTE 1 FILA */}
+
+        {/* ENVIAR SAUDAÇÃO QUANDO HOUVER SOMENTE 1 FILA */}
         <Grid xs={12} sm={6} md={4} item>
           <FormControl className={classes.selectContainer}>
-            <InputLabel id="sendGreetingMessageOneQueues-label">Enviar saudação quando houver somente 1 fila</InputLabel>
+            <InputLabel id="sendGreetingMessageOneQueues-label">
+              Enviar saudação quando houver somente 1 fila
+            </InputLabel>
             <Select
               labelId="sendGreetingMessageOneQueues-label"
               value={sendGreetingMessageOneQueues}
@@ -536,26 +570,6 @@ export default function Options(props) {
             </FormHelperText>
           </FormControl>
         </Grid>
-		
-      </Grid>
-      <Grid spacing={3} container>
-        <Tabs
-          indicatorColor="primary"
-          textColor="primary"
-          scrollButtons="on"
-          variant="scrollable"
-          className={classes.tab}
-          style={{
-            marginBottom: 20,
-            marginTop: 20
-          }}
-        >
-          <Tab
-
-            label="INTEGRAÇÕES" />
-
-        </Tabs>
-
       </Grid>
       {/*-----------------IXC DESATIVADO 4.6.5-----------------*/}
       {/*<Grid spacing={3} container
@@ -683,7 +697,7 @@ export default function Options(props) {
         </Grid>
       </Grid>*/}
       {/*-----------------ASAAS-----------------*/}
-      <Grid spacing={3} container
+      {/* <Grid spacing={3} container
         style={{ marginBottom: 10 }}>
         <Tabs
           indicatorColor="primary"
@@ -714,7 +728,7 @@ export default function Options(props) {
             </FormHelperText>
           </FormControl>
         </Grid>
-      </Grid>
+      </Grid> */}
     </>
   );
 }
